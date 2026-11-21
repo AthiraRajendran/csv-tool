@@ -1,6 +1,16 @@
-import csv
+# import csv
+
+
+# def read_rows(path):
+#     with open(path, newline="") as f:
+#         return list(csv.DictReader(f))
+    
+from csv_tool.errors import CsvToolError
 
 
 def read_rows(path):
-    with open(path, newline="") as f:
-        return list(csv.DictReader(f))
+    try:
+        with open(path, newline="") as f:
+            return list(csv.DictReader(f))
+    except FileNotFoundError:
+        raise CsvToolError(f"File not found: {path}") from None
