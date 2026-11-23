@@ -27,7 +27,7 @@ from csv_tool.reader import read_rows
 from csv_tool.processor import summarize
 
 
-def main():
+def main() -> None:
     path = sys.argv[1] if len(sys.argv) > 1 else "data.csv"
     try:
         rows = read_rows(path)
